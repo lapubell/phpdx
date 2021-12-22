@@ -20,7 +20,11 @@ func handleTemplate(w http.ResponseWriter, r *http.Request) {
 	</li>
 </ul>
 `
-	template, _ := template.New("html").Parse(t)
+	template, err := template.New("html").Parse(t)
+	if err != nil {
+		// handle error right here!!!!!!!!!!!!!!!!!!!!
+	}
+
 	template.Execute(w, map[string]interface{}{
 		"Name":      "Kurtis",
 		"Age":       37,
